@@ -11,44 +11,51 @@
     <header></header>
     <main>
       <section>
-        <div class="p-4">
-          <h2 class="text-xl font-bold mb-4">Section 1</h2>
-          <form>
-            <div class="mb-4">
-              <label class="block text-gray-700 font-bold mb-2" for="field1"
-                >Field 1</label
-              >
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="field1"
-                type="text"
-                placeholder="Enter field 1"
-              />
+        <div class="flex flex-wrap">
+          <!-- Navigation -->
+          <nav class="w-full bg-gray-800">
+            <div class="flex items-center justify-center h-12">
+              <div class="flex items-center">
+                <span class="text-white font-semibold text-xl tracking-tight mr-4">Form Sections</span>
+              </div>
             </div>
-            <div class="mb-4">
-              <label class="block text-gray-700 font-bold mb-2" for="field2"
-                >Field 2</label
-              >
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="field2"
-                type="text"
-                placeholder="Enter field 2"
-              />
+            <div class="px-2 pt-2 pb-4">
+              <ul class="flex flex-col sm:flex-row sm:justify-center sm:text-lg">
+                <li class="nav-item">
+                  <a href="#section1" class="nav-link bg-gray-100 rounded-lg">Section 1</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section2" class="nav-link">Section 2</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section3" class="nav-link">Section 3</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section4" class="nav-link">Section 4</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section5" class="nav-link">Section 5</a>
+                </li>
+              </ul>
             </div>
-            <div class="mb-4">
-              <label class="block text-gray-700 font-bold mb-2" for="field3"
-                >Field 3</label
-              >
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="field3"
-                type="text"
-                placeholder="Enter field 3"
-              />
-            </div>
-          </form>
-        </div>
+          </nav>
+        
+          <!-- Section 1 -->
+          <div id="section1" class="w-full p-4">
+            <h2 class="text-xl font-bold mb-4">Section 1</h2>
+            <form>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="field1">Field 1</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="field1" type="text" placeholder="Enter field 1">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="field2">Field 2</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="field2" type="text" placeholder="Enter field 2">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="field3">Field 3</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="field3" type="text" placeholder="Enter field 3">
+              </div>
       </section>
     </main>
     <footer></footer>

@@ -1,5 +1,5 @@
 <?php
-include_once('connection.php');
+include_once('../connection.php');
 $sql = "SELECT ingredient_name FROM ingredient";
 $result = $conn->query($sql);
 ?>
@@ -24,30 +24,30 @@ $result = $conn->query($sql);
     <div class="container mx-auto">
       <div class="rounded-lg shadow-lg bg-white p-6">
         <div class="flex items-center justify-center">
-          <form class="w-1/4">
+          <form class="w-1/4" action="adding_meal.php" method="POST">
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2">
                 Chef ID
               </label>
-              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Your Chef ID" />
+              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Your Chef ID" name="chef_id" />
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2">
                 Meal Name
               </label>
-              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Meal Name" />
+              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Meal Name" name="meal_name" />
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2">
                 Select Date & Time
               </label>
-              <input type="datetime-local" id="date-input" class="border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              <input type="datetime-local" id="date-input" class="border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="date_added" />
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2">
                 Category
               </label>
-              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Vegetarian/Non-Vegetarian/Chinese/Italian etc" />
+              <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Vegetarian/Non-Vegetarian/Chinese/Italian etc" name="meal_category" />
             </div>
             <div class="mb-4 relative inline-block text-left">
               <button class="inline-flex w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="dropdown-button">
@@ -55,9 +55,7 @@ $result = $conn->query($sql);
                 <strong id="hero-icon" class="ml-4">˅</strong>
               </button>
 
-              <!-- ingredients fetched from the database -->
               <div class="mb-4 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-                <!-- ******************************************* -->
                 <div id="ingredients-container" class="py-1 hidden max-h-20 overflow-y-auto" role="none">
                   <?php
                   while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -69,18 +67,17 @@ $result = $conn->query($sql);
                       ' . $row->ingredient_name . '</button
                     >';
                   } ?>
-
-                  <!-- ******************************************* -->
                 </div>
               </div>
-              <div class="mb-4 mt-10">
-                <ul id="selected-ingredients" class="mb-4">
 
-                </ul>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit">
-                  Check Status
-                </button>
-              </div>
+              <form action="" method="">
+                <div class="mb-4 mt-10">
+                  <ul id="selected-ingredients" class="mb-4">
+
+                  </ul>
+                  <input type="hidden" name="checked_status" value=1>
+                  <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
+                </div>
             </div>
           </form>
         </div>

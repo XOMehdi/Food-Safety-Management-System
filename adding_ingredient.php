@@ -1,14 +1,7 @@
 <?php
 if (isset($_GET['ingredient_submitted'])) {
-    $username = "root";
-    $password = "";
-    try {
-        $conn = new PDO("mysql:host=localhost;dbname=fsms", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage() . "\n";
-    }
+    include_once('connection.php');
+
 
     $ingredient_id = $_GET['ingredient_name'];
     $ingredient_id = substr($ingredient_id, 0, 4) . substr(time(), -4);

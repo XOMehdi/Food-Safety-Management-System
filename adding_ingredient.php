@@ -25,9 +25,11 @@ if (isset($_GET['ingredient_submitted'])) {
     $allergy_type = $_GET['allergy_type'];
     $allergy_severity = $_GET['severty_level'];
 
+    $query = $conn->prepare("INSERT INTO allergy (allergy_type, allergy_severity) VALUES (?, ?)");
+    $query->execute([$allergy_type, $allergy_severity]);
 
-    $conn->query("INSERT INTO allergy (allergy_type, allergy_severity) VALUES ('$allergy_type', '$allergy_severity')");
-    $conn->query("INSERT INTO supplier (supp_name, supp_phone, supp_country) VALUES ('$supp_name', '$supp_phone', '$supp_country')");
+    $query = $conn->prepare("INSERT INTO supplier (supp_name, supp_phone, supp_country) VALUES (?, ?, ?)");
+    $query->execute([$supp_name, $supp_phone, $supp_country]);
 
     $query = $conn->query("SELECT allergy_num FROM allergy ORDER BY allergy_num DESC LIMIT 1");
     $row = $query->fetch(PDO::FETCH_OBJ);
@@ -37,7 +39,8 @@ if (isset($_GET['ingredient_submitted'])) {
     $row = $query->fetch(PDO::FETCH_OBJ);
     $supp_num = $row->supp_num;
 
-    $conn->query("INSERT INTO ingredient (ingredient_id, ingredient_name, ingredient_cost, purchase_date, expire_date, allergy_type, supplier) VALUES ('$ingredient_id', '$ingredient_name', '$ingredient_cost', '$purchase_date', '$expire_date', '$allergy_num', '$supp_num')");
+    $query = $conn->prepare("INSERT INTO ingredient (ingredient_id, ingredient_name, ingredient_cost, purchase_date, expire_date, allergy_type, supplier) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $query->execute([$ingredient_id, $ingredient_name, $ingredient_cost, $purchase_date, $expire_date, $allergy_num, $supp_num]);
 
     echo "Your form has been submitted\n";
 } else {

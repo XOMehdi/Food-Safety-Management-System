@@ -4,10 +4,6 @@ const moveToAllergy = document.querySelectorAll(".move-to-allergy");
 const nextMoveToSupplier = document.getElementById("move-to-supplier");
 const nextMoveToAllergy = document.getElementById("move-to-allergy");
 
-// const submitIngredientButton = document.getElementById(
-//   "submit-ingredient-button"
-// );
-
 let default_class =
   "move-to-supplier px-6 py-2 rounded-lg text-gray-700 hover:text-gray-500 focus:outline-none";
 

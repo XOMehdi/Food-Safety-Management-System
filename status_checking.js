@@ -1,12 +1,9 @@
 const dropdownButton = document.getElementById("ingredient-menu");
 const ingredientContainer = document.getElementById("ingredients-container");
-const ingredientsAvailable = document.querySelectorAll("ingredient-available");
+const ingredientsAvailable = document.querySelectorAll(".ingredient-available");
 const heroIcon = document.getElementById("hero-icon");
 const selectedIngredients = document.getElementById("selected-ingredients");
-
-dropdownButton.addEventListener("submit", (e) => {
-  event.preventDefault();
-});
+const fetchedIngredients = document.getElementById("fetched-ingredients");
 
 let dropdownExpanded = false;
 dropdownButton.addEventListener("click", (e) => {
@@ -15,17 +12,19 @@ dropdownButton.addEventListener("click", (e) => {
     ingredientContainer.classList.add("hidden");
     dropdownExpanded = false;
   } else {
-    dropdownButton.value = "1";
-    let visibleClass = ingredientContainer.className.replace("hidden", "");
+    let visibleContainer = ingredientContainer.className.replace("hidden", "");
+    let visibleIngredients = fetchedIngredients.className.replace("hidden", "");
+
     heroIcon.innerText = "^";
-    ingredientContainer.classList = visibleClass;
+    ingredientContainer.classList = visibleContainer;
+    fetchedIngredients.classList = visibleIngredients;
     dropdownExpanded = true;
   }
 
   e.preventDefault();
 });
 
-ingredientsAvailable.addEventListener("click", (e) => {
-  selectedIngredients.innerHTML =
-    "<li class=''>" + ingredientsAvailable.innerText + "</li>";
-});
+// ingredientsAvailable.addEventListener("click", (e) => {
+//   selectedIngredients.innerHTML =
+//     "<li>" + ingredientsAvailable.innerText + "</li>";
+// });

@@ -15,13 +15,28 @@ $result = $conn->query($sql);
   <title>FSMS - Home</title>
   <link rel="icon" type="image/x-icon" href="images/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .u-li-close-btn {
+      background-color: #ff0000;
+      color: white;
+      width: 25px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #ffff00;
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body class="flex flex-row">
-  <div class="w-1/4 h-screen bg-gray-900 text-white flex flex-col justify-between">
+  <div class="w-1/4 h-screen bg-gray-900 text-white flex flex-col justify-center">
     <ul class="ml-3 mt-10">
       <li class="mb-4"><a href="home.php" class="hover:text-blue-200 font-medium">Home</a></li>
-      <li class="mb-4"><a href="#" class="hover:text-blue-200 font-medium">Personal Info</a></li>
+      <li class="mb-4"><a href="chef_info.php" class="hover:text-blue-200 font-medium">Personal Info</a></li>
       <li class="mb-4"><a href="status_checking/status_checking.php" class="hover:text-blue-200 font-medium">Meal Status Checking</a></li>
       <li class="mb-4"><a href="adding_ingredient/adding_ingredient.html" class="hover:text-blue-200 font-medium">Ingredient Addition</a></li>
       <li class="mt-10"><a class="block bg-white text-blue-500 py-2 px-2 rounded-full mr-6 text-center" href='logout.php'>Sign Out</a></li>
@@ -52,7 +67,22 @@ $result = $conn->query($sql);
           <td class='border px-4 py-2'>$row->expire_date</td>
           <td class='border px-4 py-2'>$row->allergy_type</td>
           <td class='border px-4 py-2'>$row->supplier</td>
-          <td class='border px-4 py-2'>
+          <td>
+            <form action='delete.php' method='POST'>
+              <input type='hidden' name='ingredient_id' value='$row->ingredient_id'>
+              <button type='submit' name='delete' class='u-li-close-btn btn'>x</button>
+            </form>
+          </td>
+        </tr>";
+        }
+        ?>
+      </tbody>
+    </table>
+</body>
+
+</html>
+
+<!-- <td class='border px-4 py-2'>
           <a href='edit.php?id=$row->ingredient_id'>
             <svg class='w-6 h-6' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
               <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'/>
@@ -64,12 +94,4 @@ $result = $conn->query($sql);
               <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12'/>
             </svg>
           </a>
-        </td>
-        </tr>";
-        }
-        ?>
-      </tbody>
-    </table>
-</body>
-
-</html>
+        </td> -->

@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['ingredient_submitted'])) {
-    include_once('connection.php');
+    include_once('../connection.php');
 
 
     $ingredient_id = $_GET['ingredient_name'];
@@ -35,7 +35,7 @@ if (isset($_GET['ingredient_submitted'])) {
     $query = $conn->prepare("INSERT INTO ingredient (ingredient_id, ingredient_name, ingredient_cost, purchase_date, expire_date, allergy_type, supplier) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $query->execute([$ingredient_id, $ingredient_name, $ingredient_cost, $purchase_date, $expire_date, $allergy_num, $supp_num]);
 
-    echo "Your form has been submitted\n";
+    echo "Ingredient Added Successfully In the Inventory\n";
 } else {
-    echo "Error: Form not submitted\n";
+    echo "Ingredient Addion Failed\n";
 }

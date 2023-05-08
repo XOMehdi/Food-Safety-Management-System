@@ -70,7 +70,7 @@ $result = $conn->query($sql);
                 </div>
               </div>
 
-              <form action="" method="">
+              <form action="adding_meal.php" method="GET">
                 <div class="mb-4 mt-10">
                   <ul id="selected-ingredients" class="mb-4">
 
@@ -78,6 +78,7 @@ $result = $conn->query($sql);
                   <input type="hidden" name="checked_status" value=1>
                   <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
                 </div>
+              </form>
             </div>
           </form>
         </div>

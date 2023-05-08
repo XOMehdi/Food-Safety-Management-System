@@ -9,10 +9,23 @@ if (isset($_POST['checked_status'])) {
     $meal_id = substr($meal_name, 0, 4) . substr(time(), -4);
     $date_added = $_POST['date_added'];
     $meal_category = $_POST['meal_category'];
-    // meal_price through sum ingredient cost
-    // ingredient info in cluster??
+    $selected_ingredients = $_GET['ingredient'];
 
-    $meal_price = 15.63;
+    $query = $conn->prepare("INSERT INTO allergy (allergy_type, allergy_severity) VALUES (?, ?)");
+    $query->execute([$allergy_type, $allergy_severity]);
+
+    $sum_ingredient_cost = 0;
+    foreach ($selected_ingredients as $ingredient) {
+
+        $query = $conn->query("SELECT * FROM ingredient WHERE ingredient_name = '$ingredient'");
+        $row = $query->fetch(PDO::FETCH_OBJ);
+        $ingredient_id = $row->ingredient_id;
+        $sum_ingredient_cost += $row->ingredient_cost;
+
+        $query = $conn->query("INSERT INTO meal_ingredient (meal_id, ingredient_id, date_added) VALUES ('$meal_id', '$ingredient_id', '$date_added')");
+    }
+
+    $meal_price = $sum_ingredient_cost;
     $action_type = "Creation";
 
 
@@ -21,10 +34,6 @@ if (isset($_POST['checked_status'])) {
 
     $query = $conn->prepare("INSERT INTO meal_chef (meal_id, chef_id, action_type) VALUES (?, ?, ?)");
     $query->execute([$meal_id, $chef_id, $action_type]);
-
-    $query = $conn->prepare("INSERT INTO meal_ingredient (meal_id, ingredient_id, date_added) VALUES (?, ?, ?)");
-    $query->execute([$meal_id, $ingredient_id, $date_added]);
-
 
     echo "Your form has been submitted\n";
 } else {

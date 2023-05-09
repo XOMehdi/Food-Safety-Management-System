@@ -23,12 +23,7 @@ dropdownButton.addEventListener("click", (e) => {
 fetchedIngredients.forEach((ingredient) => {
   ingredient.addEventListener("click", (e) => {
     let listItem = document.createElement("li");
-    let hiddenInput = document.createElement("input");
     let ingredientName = document.createTextNode(ingredient.innerText);
-
-    input.setAttribute("type", "hidden");
-    input.setAttribute("name", "ingredient");
-    input.setAttribute("value", ingredientName);
 
     listItem.className =
       "inline-block bg-gray-200 rounded-full py-1 px-3 text-sm font-semibold text-gray-700 mr-2 mb-2";

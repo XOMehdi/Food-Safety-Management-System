@@ -11,7 +11,7 @@ if (isset($_POST['logged_in'])) {
     $query->execute([$chef_id]);
 
     $row = $query->fetch(PDO::FETCH_OBJ);
-    $row->chef_id;
+    // $row->chef_id;
 
     if ($chef_id == $row->chef_id && $password == $row->password) {
         $_SESSION['chef_id'] = $chef_id;

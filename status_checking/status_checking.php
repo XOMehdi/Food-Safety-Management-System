@@ -57,31 +57,18 @@ $result = $conn->query($sql);
                 <strong id="hero-icon" class="ml-4">˅</strong>
               </button>
 
-              <div class="mb-4 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-                <div id="ingredients-container" class="py-1 hidden max-h-20 overflow-y-auto" role="none">
-                  <?php
-                  while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                    echo '<button
-                      class="fetched-ingredients block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                      tabindex="-1"
-                    >
-                      ' . $row->ingredient_name . '</button
-                    >';
-                  } ?>
-                </div>
-              </div>
-
-              <form action="adding_meal.php" method="GET">
-                <div class="mb-4 mt-10">
-                  <ul id="selected-ingredients" class="mb-4">
-
-                  </ul>
-                  <input type="hidden" name="checked_status" value=1>
-                  <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
-                </div>
-              </form>
+              <?php
+              while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                echo '<input
+                         type="checkbox"
+                          value="' . $row->ingredient_name . '"
+                          name="selected_ingredients[]"
+                        >
+                        <span>' . $row->ingredient_name . '</span>';
+              } ?>
             </div>
+            <input type="hidden" name="checked_status" value=1>
+            <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
           </form>
         </div>
       </div>
@@ -92,3 +79,31 @@ $result = $conn->query($sql);
 </body>
 
 </html>
+
+
+<!-- <button class="inline-flex w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="dropdown-button">
+  Select Ingredients
+  <strong id="hero-icon" class="ml-4">˅</strong>
+</button>
+
+<div class="mb-4 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+  <div id="ingredients-container" class="py-1 hidden max-h-20 overflow-y-auto" role="none">
+    <?php
+    // while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+    //   echo '<input
+    //                   class="fetched-ingredients block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+    //                   type="checkbox"
+    //                   value="$row->ingredient_name"
+    //                   name="selected_ingredients"
+    //                 >';
+    // } 
+    ?>
+  </div>
+</div>
+
+<div class="mb-4 mt-10">
+  <ul id="selected-ingredients" class="mb-4">
+
+  </ul>
+  <input type="hidden" name="checked_status" value=1>
+  <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status"> -->

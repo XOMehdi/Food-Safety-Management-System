@@ -36,6 +36,7 @@ if (isset($_GET['ingredient_submitted'])) {
     $query->execute([$ingredient_id, $ingredient_name, $ingredient_cost, $purchase_date, $expire_date, $allergy_num, $supp_num]);
 
     echo "Ingredient Added Successfully In the Inventory\n";
+    header("Location: ../home.php");
 } else {
     echo "Ingredient Addion Failed\n";
 }

@@ -33,25 +33,6 @@ if (isset($_POST['checked_status'])) {
         // check if ingredient is expired or consist of allergies
         if ($expire_date < $current_date) {
             echo "The ingredient: " . $row->ingredient_name . " was Expired on " . $row->expire_date;
-?> <br> <?php
-            echo "Would you like to remove the ingredient?";
-        ?>
-            <form action="adding_meal.php" method="GET">
-                <select name="option">
-                    <option value="Y">Yes</option>
-                    <option value="N">No</option>
-                </select>
-                <input type="hidden" value="1" name="selected">
-                <input type="submit" value="Confirm">
-            </form>
-<?php
-            if (isset($_GET['selected'])) {
-                $operation = $_GET['option'];
-                echo "$operation";
-                if ($operation == "Y")
-                    $conn->query("DELETE FROM ingredient WHERE ingredient_id = $ingredient_id");
-            }
-
             $action_type = "Rejected";
         } else {
 
@@ -88,9 +69,10 @@ if (isset($_POST['checked_status'])) {
 
 
             echo "Congratulations! Meal is Safe for Serving to Customers.\n";
-            header("Location: ../home.php");
         }
     }
+
+    header("Location: ../home.php");
 } else {
     echo "Error: Form not submitted\n";
 }

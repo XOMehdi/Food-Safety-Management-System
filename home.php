@@ -132,19 +132,19 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <?php
           while ($row = $supplier_table->fetch(PDO::FETCH_OBJ)) {
             echo "<tr class='$bgColor'>
-          <td class='border px-4 py-2'>$row->supp_num</td>
-          <td class='border px-4 py-2'>$row->supp_name</td>
-          <td class='border px-4 py-2'>$row->supp_phone</td>
-          <td class='border px-4 py-2'>$row->supp_country</td>
-          <td class='border px-4 py-2'>
-          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
-            <a href='updating_ingredient.html' class='btn'>Update |</a>
-              <form class='inline-block' action='delete_ingredient.php' method='POST'>
-                  <input type='hidden' name='supp_num' value='$row->supp_num'>
-                  <button type='submit' name='delete' class='btn'>Delete</button>
-              </form>
-          </td>
-          </tr>";
+                  <td class='border px-4 py-2'>$row->supp_num</td>
+                  <td class='border px-4 py-2'>$row->supp_name</td>
+                  <td class='border px-4 py-2'>$row->supp_phone</td>
+                  <td class='border px-4 py-2'>$row->supp_country</td>
+                  <td class='border px-4 py-2'>
+                  <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
+                  <a href='updating_ingredient.html' class='btn'>Update |</a>
+                  <form class='inline-block' action='delete_ingredient.php' method='POST'>
+                        <input type='hidden' name='supp_num' value='$row->supp_num'>
+                        <button type='submit' name='delete' class='btn'>Delete</button>
+                  </form>
+                  </td>
+                </tr>";
           }
           ?>
         </tbody>

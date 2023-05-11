@@ -66,8 +66,8 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <td class='border px-4 py-2'>$row->allergy_type</td>
           <td class='border px-4 py-2'>$row->supp_name</td>
           <td class='border px-4 py-2'>
-          <a href='adding_ingredient.html' class='btn'>Add |</a>
-            <a href='updating_ingredient.html' class='btn'>Update |</a>
+          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
+            <a href='updating_ingredient.html?id=$row->ingredient_id' class='btn'>Update |</a>
               <form class='inline-block' action='delete_ingredient.php' method='POST'>
                   <input type='hidden' name='ingredient_id' value='$row->ingredient_id'>
                   <button type='submit' name='delete' class='btn'>Delete</button>
@@ -102,7 +102,7 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <td class='border px-4 py-2'>$row->allergy_type</td>
           <td class='border px-4 py-2'>$row->allergy_severity</td>
           <td class='border px-4 py-2'>
-          <a href='adding_ingredient.html' class='btn'>Add |</a>
+          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
             <a href='updating_ingredient.html' class='btn'>Update |</a>
               <form class='inline-block' action='delete_ingredient.php' method='POST'>
                   <input type='hidden' name='allergy_num' value='$row->allergy_num'>
@@ -137,7 +137,7 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <td class='border px-4 py-2'>$row->supp_phone</td>
           <td class='border px-4 py-2'>$row->supp_country</td>
           <td class='border px-4 py-2'>
-          <a href='adding_ingredient.html' class='btn'>Add |</a>
+          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
             <a href='updating_ingredient.html' class='btn'>Update |</a>
               <form class='inline-block' action='delete_ingredient.php' method='POST'>
                   <input type='hidden' name='supp_num' value='$row->supp_num'>

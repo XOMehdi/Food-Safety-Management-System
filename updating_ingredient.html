@@ -71,15 +71,10 @@ include('secure.php');
                 <div class="mb-4">
                   <input
                     type="hidden"
-                    name="update"
-                    value="$row->ingredient_id"
+                    name="update_ingredient"
+                    value="<?php echo $_GET['id']; ?>"
                   />
-                  <input
-                    type="submit"
-                    name="update_button"
-                    class="btn"
-                    value="Update"
-                  />
+                  <input type="submit" class="btn" value="Update" />
                 </div>
               </div>
             </div>

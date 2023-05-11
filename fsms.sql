@@ -1,6 +1,3 @@
-CREATE DATABASE fsms;
-USE fsms;
-
 -- =============================================================================================================
 --                                          DROP QUERIES
 -- =============================================================================================================
@@ -10,11 +7,14 @@ DROP TABLE ingredient;
 DROP TABLE supplier;
 DROP TABLE chef;
 DROP TABLE meal;
+DROP DATABASE fsms;
 
 
 -- =============================================================================================================
 --                                          CREATE QUERIES
 -- =============================================================================================================
+CREATE DATABASE fsms;
+USE fsms;
 CREATE TABLE meal_chef (meal_id varchar(10) NOT NULL, chef_id varchar(10) NOT NULL, action_date timestamp NOT NULL, action_type varchar(50) NOT NULL, PRIMARY KEY (meal_id, chef_id, action_date));
 CREATE TABLE meal_ingredient (meal_id varchar(10) NOT NULL, ingredient_id varchar(10) NOT NULL, date_added datetime NOT NULL, PRIMARY KEY (meal_id, ingredient_id));
 CREATE TABLE ingredient (ingredient_id varchar(10) NOT NULL, ingredient_name varchar(50), ingredient_cost float, purchase_date date NOT NULL, expire_date date, allergy_type int(5), supplier int(5) NOT NULL, PRIMARY KEY (ingredient_id));

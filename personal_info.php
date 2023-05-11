@@ -2,8 +2,9 @@
 include_once('connection.php');
 include('secure.php');
 
-$sql = "SELECT * FROM chef";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM chef WHERE chef_id = ?";
+$result = $conn->prepare($sql);
+$result->execute([$_SESSION['chef_id']]);
 
 ?>
 

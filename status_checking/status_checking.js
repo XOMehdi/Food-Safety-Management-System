@@ -21,14 +21,14 @@ dropdownButton.addEventListener("click", (e) => {
 });
 
 fetchedIngredients.forEach((ingredient) => {
-  ingredient.addEventListener("click", (e) => {
+  ingredient.addEventListener("change", (e) => {
     let listItem = document.createElement("li");
-    let ingredientName = document.createTextNode(ingredient.innerText);
+    let ingredientName = document.createTextNode(ingredient.value);
 
     listItem.className =
       "inline-block bg-gray-200 rounded-full py-1 px-3 text-sm font-semibold text-gray-700 mr-2 mb-2";
     listItem.appendChild(ingredientName);
-    listItem.appendChild(hiddenInput);
+    selectedIngredients.classList.remove("mt-20");
     selectedIngredients.appendChild(listItem);
     e.preventDefault();
   });

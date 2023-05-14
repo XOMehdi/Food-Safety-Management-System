@@ -29,7 +29,7 @@ $result = $conn->query($sql);
       </ul>
     </div>
     <div class="w-3/4 h-screen bg-white flex flex-col justify-center items-center overflow-y-auto">
-      <header class="w-full text-center py-4 bg-gray-900 text-white">
+      <header class="w-full text-center py-4 text-black">
         <h1 class="text-2xl font-bold my-4">Meal Status Checking</h1>
         <h1 class="text-lg">Enter Meal Details</h1>
       </header>
@@ -73,20 +73,21 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                       echo '<input
                          type="checkbox"
+                         class="fetched-ingredients"
                           value="' . $row->ingredient_name . '"
                           name="selected_ingredients[]"
                         >
-                        <span class="fetched-ingredients">' . $row->ingredient_name . '</span>';
+                        <span>' . $row->ingredient_name . '</span>';
                     } ?>
                   </div>
                   <input type="hidden" name="checked_status" value=1>
-                  <input class="my-6 bg-black text-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
+                  <input class="mt-6 bg-black text-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" type="submit" value="Check Status">
+                </div>
+                <div class="mb-4 mt-4">
+                  <h1 class="block text-gray-700 font-bold mb-2">Selected Ingredients:</h1>
+                  <ul id="selected-ingredients"></ul>
                 </div>
               </form>
-              <div class="mb-4 mt-10">
-                <ul id="selected-ingredients" class="mb-4">
-                </ul>
-              </div>
             </div>
           </div>
         </div>

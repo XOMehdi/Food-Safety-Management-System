@@ -32,7 +32,7 @@ $result->execute([$_SESSION['chef_id']]);
             <ul class="ml-3 mt-10">
                 <li class="mb-4"><a href="home.php" class="hover:text-blue-200 font-medium">Home</a></li>
                 <li class="mb-4"><a href="personal_info.php" class="hover:text-blue-200 font-medium">Personal Info</a></li>
-                <li class="mb-4"><a href="adding_ingredient/adding_ingredient.html" class="hover:text-blue-200 font-medium">Ingredient Addition</a></li>
+                <li class="mb-4"><a href="adding_ingredient/adding_ingredient.php" class="hover:text-blue-200 font-medium">Ingredient Addition</a></li>
                 <li class="mb-4"><a href="status_checking/status_checking.php" class="hover:text-blue-200 font-medium">Meal Status Checking</a></li>
                 <li class="mt-10"><a class="block bg-white text-blue-500 py-2 px-2 rounded-full mr-6 text-center" href='logout.php'>Log Out</a></li>
             </ul>
@@ -64,10 +64,10 @@ $result->execute([$_SESSION['chef_id']]);
                         <td class='border px-4 py-2' >$row->chef_age</td>
                         <td class='border px-4 py-2' >$row->chef_gender</td>
                         <td class='border px-4 py-2'>
-                        <a href='updating_chef.html' class='btn'>Update | </a>
-                        <form class='inline-block' action='delete_chef.php' method='POST'>
-                            <input type='hidden' name='chef_id' value='$row->chef_id'>
-                            <button type='submit' name='delete' class='btn'>Delete</button>
+                        <a href='updating_chef.php' class='btn'>Update | </a>
+                        <form class='inline-block' action='delete.php' method='POST'>
+                            <input type='hidden' name='delete_chef' value='$row->chef_id'>
+                            <input type='submit' class='btn' value='Delete'>
                         </form>
                     </td>
                     </tr>";

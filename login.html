@@ -1,8 +1,11 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FSMS - Log In</title>
     <link rel="icon" type="image/x-icon" href="images/logo.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="bg">
     <div class="box">
@@ -11,9 +14,6 @@
       <form action="signup_login.php" method="POST">
         <input type="text" name="chef_id" placeholder="Enter Chef ID" />
         <input type="password" name="password" placeholder="Password" />
-        <div class="recover">
-          <a href="#">Forgot password? </a>
-        </div>
         <input type="hidden" name="logged_in" class="button" value="1" />
         <input type="submit" name="login" class="button" value="Login" />
       </form>

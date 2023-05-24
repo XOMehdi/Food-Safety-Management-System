@@ -31,7 +31,7 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
       <ul class="ml-3 mt-10">
         <li class="mb-4"><a href="home.php" class="hover:text-blue-200 font-medium">Home</a></li>
         <li class="mb-4"><a href="personal_info.php" class="hover:text-blue-200 font-medium">Personal Info</a></li>
-        <li class="mb-4"><a href="adding_ingredient/adding_ingredient.html" class="hover:text-blue-200 font-medium">Ingredient Addition</a></li>
+        <li class="mb-4"><a href="adding_ingredient/adding_ingredient.php" class="hover:text-blue-200 font-medium">Ingredient Addition</a></li>
         <li class="mb-4"><a href="status_checking/status_checking.php" class="hover:text-blue-200 font-medium">Meal Status Checking</a></li>
         <li class="mt-10"><a class="block bg-white text-blue-500 py-2 px-2 rounded-full mr-6 text-center" href='logout.php'>Log Out</a></li>
       </ul>
@@ -66,11 +66,11 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <td class='border px-4 py-2'>$row->allergy_type</td>
           <td class='border px-4 py-2'>$row->supp_name</td>
           <td class='border px-4 py-2'>
-          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
-            <a href='updating_ingredient.html?id=$row->ingredient_id' class='btn'>Update |</a>
-              <form class='inline-block' action='delete_ingredient.php' method='POST'>
-                  <input type='hidden' name='ingredient_id' value='$row->ingredient_id'>
-                  <button type='submit' name='delete' class='btn'>Delete</button>
+          <a href='adding_ingredient/adding_ingredient.php' class='btn'>Add |</a>
+            <a href='updating_ingredient.php?id=$row->ingredient_id' class='btn'>Update |</a>
+              <form class='inline-block' action='delete.php' method='POST'>
+                  <input type='hidden' name='delete_ingredient' value='$row->ingredient_id'>
+                  <input type='submit' name='delete' class='btn' value='Delete'>
               </form>
           </td>
           </tr>";
@@ -102,11 +102,11 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           <td class='border px-4 py-2'>$row->allergy_type</td>
           <td class='border px-4 py-2'>$row->allergy_severity</td>
           <td class='border px-4 py-2'>
-          <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
-            <a href='updating_ingredient.html' class='btn'>Update |</a>
-              <form class='inline-block' action='delete_ingredient.php' method='POST'>
+          <a href='adding_ingredient/adding_ingredient.php' class='btn'>Add |</a>
+            <a href='updating_ingredient.php' class='btn'>Update |</a>
+              <form class='inline-block' action='delete.php' method='POST'>
                   <input type='hidden' name='allergy_num' value='$row->allergy_num'>
-                  <button type='submit' name='delete' class='btn'>Delete</button>
+                  <input type='submit' name='delete' class='btn' value='Delete'>
               </form>
           </td>
           </tr>";
@@ -137,11 +137,11 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
                   <td class='border px-4 py-2'>$row->supp_phone</td>
                   <td class='border px-4 py-2'>$row->supp_country</td>
                   <td class='border px-4 py-2'>
-                  <a href='adding_ingredient/adding_ingredient.html' class='btn'>Add |</a>
-                  <a href='updating_ingredient.html' class='btn'>Update |</a>
-                  <form class='inline-block' action='delete_ingredient.php' method='POST'>
+                  <a href='adding_ingredient/adding_ingredient.php' class='btn'>Add |</a>
+                  <a href='updating_ingredient.php' class='btn'>Update |</a>
+                  <form class='inline-block' action='delete.php' method='POST'>
                         <input type='hidden' name='supp_num' value='$row->supp_num'>
-                        <button type='submit' name='delete' class='btn'>Delete</button>
+                        <input type='submit' name='delete' class='btn' value='Delete'>
                   </form>
                   </td>
                 </tr>";

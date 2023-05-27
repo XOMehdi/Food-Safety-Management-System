@@ -38,5 +38,5 @@ if (isset($_POST['signed_up'])) {
     $_SESSION['chef_id'] = $chef_id;
     $_SESSION['password'] = $password;
 
-    header('Location: home.php');
+    header('Location: login.html');
 }

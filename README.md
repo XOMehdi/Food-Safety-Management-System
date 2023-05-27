@@ -1,6 +1,13 @@
 # Food-Safety-Management-System
 
-A system to ensure whether a meal is suitable to be served to custoemers.
+A system that manages, tracks, achieves and improves food safety and quality by keeping a record of various useful data such as ingredients, suppliers, chefs, food items, allergies etc. The system is equipped with salient features of quality management, inventory management, food analysis and report generation in order to attain food safety and quality.
+
+# HOW TO RUN THE PROJECT
+
+# PREREQUISITES
+
+1. System with XAMPP installed
+2. Active internet connection to render the TailwindCSS styling.
 
 # STEPS TO RUN THE PROJECT
 

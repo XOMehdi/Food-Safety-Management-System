@@ -30,7 +30,7 @@ if (isset($_POST['checked_status'])) {
         $expire_date = strtotime($expire_date);
         $current_date = time();
 
-        // check if ingredient is expired or consist of allergies
+        // check if ingredient is expired or consists of allergies
         if ($expire_date < $current_date) {
             echo "The ingredient: " . $row->ingredient_name . " was Expired on " . $row->expire_date;
             $action_type = "Rejected";
@@ -66,7 +66,6 @@ if (isset($_POST['checked_status'])) {
 
             $query = $conn->prepare("INSERT INTO meal_ingredient (meal_id, ingredient_id, date_added) VALUES (?, ?, ?)");
             $query->execute([$meal_id, $ingredient_id, $date_added]);
-
 
             echo "Congratulations! Meal is Safe for Serving to Customers.\n";
         }

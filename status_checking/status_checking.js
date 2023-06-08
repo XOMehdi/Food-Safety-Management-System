@@ -1,8 +1,8 @@
-let dropdownButton = document.getElementById("dropdown-button");
-let heroIcon = document.getElementById("hero-icon");
-let ingredientsContainer = document.getElementById("ingredients-container");
-let fetchedIngredients = document.querySelectorAll(".fetched-ingredients");
-let selectedIngredients = document.getElementById("selected-ingredients");
+const dropdownButton = document.getElementById("dropdown-button");
+const heroIcon = document.getElementById("hero-icon");
+const ingredientsContainer = document.getElementById("ingredients-container");
+const fetchedIngredients = document.querySelectorAll(".fetched-ingredients");
+const selectedIngredients = document.getElementById("selected-ingredients");
 
 let isDropdownExpanded = false;
 dropdownButton.addEventListener("click", (e) => {

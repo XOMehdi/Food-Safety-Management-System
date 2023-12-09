@@ -20,7 +20,7 @@ CREATE TABLE meal_ingredient (meal_id varchar(10) NOT NULL, ingredient_id varcha
 CREATE TABLE ingredient (ingredient_id varchar(10) NOT NULL, ingredient_name varchar(50), ingredient_cost float, purchase_date date NOT NULL, expire_date date, allergy_type int(5), supplier int(5) NOT NULL, PRIMARY KEY (ingredient_id));
 CREATE TABLE allergy (allergy_num int(5) NOT NULL AUTO_INCREMENT, allergy_type varchar(50) NOT NULL, allergy_severity int(2) NOT NULL, PRIMARY KEY (allergy_num));
 CREATE TABLE supplier (supp_num int(5) NOT NULL AUTO_INCREMENT, supp_name varchar(50), supp_phone int(10), supp_country varchar(50), PRIMARY KEY (supp_num));
-CREATE TABLE chef (chef_id varchar(10) NOT NULL, chef_fname varchar(50), chef_lname varchar(50), chef_age int(3), chef_gender char(1), PRIMARY KEY (chef_id));
+CREATE TABLE chef (chef_id varchar(10) NOT NULL, chef_fname varchar(50), chef_lname varchar(50), chef_age int(3), chef_gender char(1), password varchar(50) NOT NULL, PRIMARY KEY (chef_id));
 CREATE TABLE meal (meal_id varchar(10) NOT NULL, meal_name varchar(50), meal_price int(11), meal_category varchar(50) NOT NULL, PRIMARY KEY (meal_id));
 
 

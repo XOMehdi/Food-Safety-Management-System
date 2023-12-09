@@ -43,11 +43,11 @@ $result->execute([$_SESSION['chef_id']]);
                 <thead class="bg-gray-800 text-white">
                     <tr>
                         <th class="px-4 py-2">Username</th>
-                        <th class="px-4 py-2">Password</th>
                         <th class="px-4 py-2">First Name</th>
                         <th class="px-4 py-2">Last Name</th>
                         <th class="px-4 py-2">Age</th>
                         <th class="px-4 py-2">Gender</th>
+                        <th class="px-4 py-2">Password</th>
                         <th class="px-4 py-2">Operations</th>
                     </tr>
                 </thead>
@@ -58,11 +58,11 @@ $result->execute([$_SESSION['chef_id']]);
                         $bgColor = $i % 2 == 0 ? 'bg-gray-100' : 'bg-gray-200';
                         echo "<tr class='$bgColor'>
                         <td class='border px-4 py-2' >$row->chef_id</td>
-                        <td class='border px-4 py-2' >$row->password</td>
                         <td class='border px-4 py-2' >$row->chef_fname</td>
                         <td class='border px-4 py-2' >$row->chef_lname</td>
                         <td class='border px-4 py-2' >$row->chef_age</td>
                         <td class='border px-4 py-2' >$row->chef_gender</td>
+                        <td class='border px-4 py-2' >$row->chef_password</td>
                         <td class='border px-4 py-2'>
                         <a href='updating_chef.php' class='btn'>Update | </a>
                         <form class='inline-block' action='delete.php' method='POST'>

@@ -80,7 +80,7 @@ include('secure.php');
                     id="password"
                     type="password"
                     placeholder="Enter Your Updated Password"
-                    name="password"
+                    name="chef_password"
                   />
                 </div>
                 <div class="mb-4">

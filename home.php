@@ -57,23 +57,24 @@ $supplier_table = $conn->query("SELECT * FROM supplier");
           $i = 0;
           while ($row = $ingredient_table->fetch(PDO::FETCH_OBJ)) {
             $bgColor = $i % 2 == 0 ? 'bg-gray-100' : 'bg-gray-200';
-            echo "<tr class='$bgColor'>
-          <td class='border px-4 py-2'>$row->ingredient_id</td>
-          <td class='border px-4 py-2'>$row->ingredient_name</td>
-          <td class='border px-4 py-2'>$row->ingredient_cost</td>
-          <td class='border px-4 py-2'>$row->purchase_date</td>
-          <td class='border px-4 py-2'>$row->expire_date</td>
-          <td class='border px-4 py-2'>$row->allergy_type</td>
-          <td class='border px-4 py-2'>$row->supp_name</td>
-          <td class='border px-4 py-2'>
-          <a href='ingredient_addition/adding_ingredient.php' class='btn'>Add |</a>
-            <a href='updating_ingredient.php?id=$row->ingredient_id' class='btn'>Update |</a>
-              <form class='inline-block' action='delete.php' method='POST'>
-                  <input type='hidden' name='delete_ingredient' value='$row->ingredient_id'>
-                  <input type='submit' name='delete' class='btn' value='Delete'>
-              </form>
-          </td>
-          </tr>";
+            echo "
+            <tr class='$bgColor'>
+              <td class='border px-4 py-2'>$row->ingredient_id</td>
+              <td class='border px-4 py-2'>$row->ingredient_name</td>
+              <td class='border px-4 py-2'>$row->ingredient_cost</td>
+              <td class='border px-4 py-2'>$row->purchase_date</td>
+              <td class='border px-4 py-2'>$row->expire_date</td>
+              <td class='border px-4 py-2'>$row->allergy_type</td>
+              <td class='border px-4 py-2'>$row->supp_name</td>
+              <td class='border px-4 py-2'>
+                <a href='ingredient_addition/adding_ingredient.php' class='btn'>Add |</a>
+                <a href='updating_ingredient.php?id=$row->ingredient_id' class='btn'>Update |</a>
+                  <form class='inline-block' action='delete.php' method='POST'>
+                      <input type='hidden' name='delete_ingredient' value='$row->ingredient_id'>
+                      <input type='submit' name='delete' class='btn' value='Delete'>
+                  </form>
+              </td>
+            </tr>";
             $i++;
           }
           ?>

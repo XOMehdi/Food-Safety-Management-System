@@ -35,7 +35,6 @@ if (isset($_POST['checked_status'])) {
             echo "The ingredient: " . $row->ingredient_name . " was Expired on " . $row->expire_date;
             $action_type = "Rejected";
         } else {
-
             if ($allergy_severity > 5)
                 echo "The ingredient: " . $row->ingredient_name . "causes Severe Allergic Effects";
 

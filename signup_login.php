@@ -4,16 +4,16 @@ include_once('connection.php');
 session_start();
 
 if (isset($_POST['logged_in'])) {
-    $chef_id = $_POST['chef_id'];
+    $chef_username = $_POST['chef_username'];
     $chef_password = $_POST['chef_password'];
 
-    $query = $conn->prepare("SELECT * FROM chef WHERE chef_id = ?");
-    $query->execute([$chef_id]);
+    $query = $conn->prepare("SELECT * FROM chef WHERE chef_username = ?");
+    $query->execute([$chef_username]);
 
     $row = $query->fetch(PDO::FETCH_OBJ);
 
-    if ($chef_id == $row->chef_id && $chef_password == $row->chef_password) {
-        $_SESSION['chef_id'] = $chef_id;
+    if ($chef_username == $row->chef_username && $chef_password == $row->chef_password) {
+        $_SESSION['chef_username'] = $chef_username;
         $_SESSION['chef_password'] = $chef_password;
 
         header('Location: home.php');
@@ -25,7 +25,7 @@ if (isset($_POST['logged_in'])) {
 }
 
 if (isset($_POST['signed_up'])) {
-    $chef_id = $_POST['chef_id'];
+    $chef_username = $_POST['chef_username'];
     $chef_fname = $_POST['chef_fname'];
     $chef_lname = $_POST['chef_lname'];
     $chef_age = $_POST['chef_age'];
@@ -33,9 +33,9 @@ if (isset($_POST['signed_up'])) {
     $chef_password = $_POST['chef_password'];
 
     $query = $conn->prepare("INSERT INTO chef VALUES (?, ?, ?, ?, ?, ?)");
-    $query->execute([$chef_id, $chef_fname, $chef_lname, $chef_age, $chef_gender, $chef_password]);
+    $query->execute([$chef_username, $chef_fname, $chef_lname, $chef_age, $chef_gender, $chef_password]);
 
-    $_SESSION['chef_id'] = $chef_id;
+    $_SESSION['chef_username'] = $chef_username;
     $_SESSION['chef_password'] = $chef_password;
 
     header('Location: login.html');

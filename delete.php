@@ -2,9 +2,9 @@
 include_once('connection.php');
 
 if (isset($_POST['delete_chef'])) {
-    $chef_id = $_POST['delete_chef'];
-    $query = $conn->prepare("DELETE FROM chef WHERE chef_id = ?");
-    $query->execute([$chef_id]);
+    $chef_username = $_POST['delete_chef'];
+    $query = $conn->prepare("DELETE FROM chef WHERE chef_username = ?");
+    $query->execute([$chef_username]);
 
     header('Location: signup.html');
     exit();

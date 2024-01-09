@@ -42,7 +42,7 @@ $result = $conn->query($sql);
                   <label class="block text-gray-700 font-bold mb-2">
                     Chef ID
                   </label>
-                  <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Your Chef ID" name="chef_id" />
+                  <input class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" type="text" placeholder="Enter Your Chef ID" name="chef_username" />
                 </div>
                 <div class="mb-4">
                   <label class="block text-gray-700 font-bold mb-2">

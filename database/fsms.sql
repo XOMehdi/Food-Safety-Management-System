@@ -1,24 +1,24 @@
 -- =============================================================================================================
 --                                          DROP QUERIES
 -- =============================================================================================================
-DROP USER IF EXISTS 'mehdi'@'localhost';
+DROP USER IF EXISTS 'your_username'@'localhost';
 DROP DATABASE IF EXISTS fsms;
 
 -- =============================================================================================================
 --                                          CREATE QUERIES
 -- =============================================================================================================
-CREATE USER 'mehdi'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE ON *.* TO 'mehdi'@'localhost';
+CREATE USER 'your_username'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'your_password';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE ON *.* TO 'your_username'@'localhost';
 
 CREATE DATABASE fsms;
 USE fsms;
 
 CREATE TABLE meal_chef (
     meal_id varchar(10) NOT NULL,
-    chef_id varchar(10) NOT NULL,
+    chef_username varchar(10) NOT NULL,
     action_date timestamp NOT NULL,
     action_type varchar(50) NOT NULL,
-    PRIMARY KEY (meal_id, chef_id, action_date)
+    PRIMARY KEY (meal_id, chef_username, action_date)
 );
 
 CREATE TABLE meal_ingredient (
@@ -55,13 +55,13 @@ CREATE TABLE supplier (
 );
 
 CREATE TABLE chef (
-    chef_id varchar(10) NOT NULL,
+    chef_username varchar(10) NOT NULL,
     chef_fname varchar(50),
     chef_lname varchar(50),
     chef_age int(3),
-    chef_gender char(1),
+    chef_gender varchar(10),
     chef_password varchar(50) NOT NULL,
-    PRIMARY KEY (chef_id)
+    PRIMARY KEY (chef_username)
 );
 
 CREATE TABLE meal (
@@ -76,8 +76,8 @@ CREATE TABLE meal (
 --                                          INDEX/CONSTRAINT QUERIES
 -- =============================================================================================================
 ALTER TABLE meal_chef
-    ADD INDEX FKmeal_chef260234 (chef_id),
-    ADD CONSTRAINT FKmeal_chef260234 FOREIGN KEY (chef_id) REFERENCES chef (chef_id);
+    ADD INDEX FKmeal_chef260234 (chef_username),
+    ADD CONSTRAINT FKmeal_chef260234 FOREIGN KEY (chef_username) REFERENCES chef (chef_username);
 
 ALTER TABLE meal_chef
     ADD INDEX FKmeal_chef954388 (meal_id),

@@ -2,9 +2,9 @@
 include_once('connection.php');
 include('secure.php');
 
-$sql = "SELECT * FROM chef WHERE chef_id = ?";
+$sql = "SELECT * FROM chef WHERE chef_username = ?";
 $result = $conn->prepare($sql);
-$result->execute([$_SESSION['chef_id']]);
+$result->execute([$_SESSION['chef_username']]);
 
 ?>
 
@@ -57,7 +57,7 @@ $result->execute([$_SESSION['chef_id']]);
                     while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                         $bgColor = $i % 2 == 0 ? 'bg-gray-100' : 'bg-gray-200';
                         echo "<tr class='$bgColor'>
-                        <td class='border px-4 py-2' >$row->chef_id</td>
+                        <td class='border px-4 py-2' >$row->chef_username</td>
                         <td class='border px-4 py-2' >$row->chef_fname</td>
                         <td class='border px-4 py-2' >$row->chef_lname</td>
                         <td class='border px-4 py-2' >$row->chef_age</td>
@@ -66,7 +66,7 @@ $result->execute([$_SESSION['chef_id']]);
                         <td class='border px-4 py-2'>
                         <a href='updating_chef.php' class='btn'>Update | </a>
                         <form class='inline-block' action='delete.php' method='POST'>
-                            <input type='hidden' name='delete_chef' value='$row->chef_id'>
+                            <input type='hidden' name='delete_chef' value='$row->chef_username'>
                             <input type='submit' class='btn' value='Delete'>
                         </form>
                     </td>

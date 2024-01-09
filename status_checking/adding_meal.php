@@ -2,8 +2,8 @@
 if (isset($_POST['checked_status'])) {
     include_once('../connection.php');
 
-    // verify chef_id
-    $chef_id = $_POST['chef_id'];
+    // verify chef_username
+    $chef_username = $_POST['chef_username'];
 
     $meal_name = $_POST['meal_name'];
     $meal_id = substr($meal_name, 0, 4) . substr(time(), -4);
@@ -52,8 +52,8 @@ if (isset($_POST['checked_status'])) {
         $query = $conn->prepare("INSERT INTO meal (meal_id, meal_name, meal_price, meal_category) VALUES (?, ?, ?, ?)");
         $query->execute([$meal_id, $meal_name, $meal_price, $meal_category]);
 
-        $query = $conn->prepare("INSERT INTO meal_chef (meal_id, chef_id, action_type) VALUES (?, ?, ?)");
-        $query->execute([$meal_id, $chef_id, $action_type]);
+        $query = $conn->prepare("INSERT INTO meal_chef (meal_id, chef_username, action_type) VALUES (?, ?, ?)");
+        $query->execute([$meal_id, $chef_username, $action_type]);
 
         foreach ($selected_ingredients as $ingredient) {
 

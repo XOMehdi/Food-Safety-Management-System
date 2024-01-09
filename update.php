@@ -4,15 +4,15 @@ session_start();
 
 if (isset($_POST['update_chef'])) {
 
-    $chef_id = $_SESSION['chef_id'];
+    $chef_username = $_SESSION['chef_username'];
     $chef_fname = $_POST['chef_fname'];
     $chef_lname = $_POST['chef_lname'];
     $chef_age = $_POST['chef_age'];
     $chef_gender = $_POST['chef_gender'];
     $chef_password = $_POST['chef_password'];
 
-    $query = $conn->prepare("UPDATE chef SET chef_fname = ?, chef_lname = ?, chef_age = ?, chef_gender = ?, chef_password = ? WHERE chef_id = ?");
-    $query->execute([$chef_fname, $chef_lname, $chef_age, $chef_gender, $chef_password, $chef_id]);
+    $query = $conn->prepare("UPDATE chef SET chef_fname = ?, chef_lname = ?, chef_age = ?, chef_gender = ?, chef_password = ? WHERE chef_username = ?");
+    $query->execute([$chef_fname, $chef_lname, $chef_age, $chef_gender, $chef_password, $chef_username]);
 
     header("Location: personal_info.php");
 }

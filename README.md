@@ -6,12 +6,12 @@ A system that manages, tracks, achieves and improves food safety and quality by 
 
 # PREREQUISITES
 
-1. System with XAMPP installed
+1. Apache, MySQL, PHP
 2. Active internet connection to render the TailwindCSS styling.
 
 # STEPS TO RUN THE PROJECT
 
-1. Import the "fsms.sql" database using mysql shell (XAMPP Shell)
+1. Import the "fsms.sql" database using mysql shell
 2. Open the "welcome.html" file in a web browser and signup as a new chef
 3. After signing up, you have successfully arrived at the home page.
 4. Click on "Personal Info" link to view account info.

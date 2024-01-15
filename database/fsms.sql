@@ -59,7 +59,7 @@ CREATE TABLE chef (
     chef_lname varchar(50),
     chef_age int(3),
     chef_gender varchar(10),
-    chef_password varchar(50) NOT NULL,
+    chef_password varchar(255) NOT NULL,
     PRIMARY KEY (chef_username)
 );
 

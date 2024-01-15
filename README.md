@@ -12,7 +12,7 @@ A system that manages, tracks, achieves and improves food safety and quality by 
 # STEPS TO RUN THE PROJECT
 
 1. Import the "fsms.sql" database using mysql shell
-2. Open the "welcome.html" file in a web browser and signup as a new chef
+2. Open the "index.html" file in a web browser and signup as a new chef
 3. After signing up, you have successfully arrived at the home page.
 4. Click on "Personal Info" link to view account info.
 5. Click on "Add an Ingredient" link to add an ingredient to the database along with its supplier and allergy data.

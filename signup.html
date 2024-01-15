@@ -11,7 +11,7 @@
     <div class="box">
       <h1>Sign Up</h1>
       <br />
-      <form action="signup_login.php" method="POST">
+      <form action="./process_signup_login.php" method="POST">
         <input type="text" name="chef_username" placeholder="Username" />
         <input type="text" name="chef_fname" placeholder="First Name" />
         <input type="text" name="chef_lname" placeholder="Last Name" />
@@ -20,7 +20,7 @@
           <option value="" disabled selected>Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
-          <option value="Others">Others</option>
+          <option value="Other">Other</option>
         </select>
         <input type="password" name="chef_password" placeholder="Password" />
         <input type="hidden" name="signed_up" class="button" value="1" />

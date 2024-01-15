@@ -1,10 +1,10 @@
 <?php
-include_once('connection.php');
-session_start();
+include('./secure.php');
+include_once('./connection.php');
 
 if (isset($_POST['update_chef'])) {
 
-    $chef_username = $_SESSION['chef_username'];
+    $chef_username = $_POST['update_chef'];
     $chef_fname = $_POST['chef_fname'];
     $chef_lname = $_POST['chef_lname'];
     $chef_age = $_POST['chef_age'];

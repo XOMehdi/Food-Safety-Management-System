@@ -8,7 +8,7 @@ DROP DATABASE IF EXISTS fsms;
 --                                          CREATE QUERIES
 -- =============================================================================================================
 CREATE USER 'your_username'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'your_password';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE ON *.* TO 'your_username'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE ON fsms.* TO 'your_username'@'localhost';
 
 CREATE DATABASE fsms;
 USE fsms;
@@ -16,7 +16,7 @@ USE fsms;
 CREATE TABLE meal_chef (
     meal_id varchar(10) NOT NULL,
     chef_username varchar(10) NOT NULL,
-    action_date timestamp NOT NULL,
+    action_date date NOT NULL,
     action_type varchar(50) NOT NULL,
     PRIMARY KEY (meal_id, chef_username, action_date)
 );
@@ -24,7 +24,6 @@ CREATE TABLE meal_chef (
 CREATE TABLE meal_ingredient (
     meal_id varchar(10) NOT NULL,
     ingredient_id varchar(10) NOT NULL,
-    date_added datetime NOT NULL,
     PRIMARY KEY (meal_id, ingredient_id)
 );
 
@@ -32,8 +31,8 @@ CREATE TABLE ingredient (
     ingredient_id varchar(10) NOT NULL,
     ingredient_name varchar(50),
     ingredient_cost float,
-    purchase_date date NOT NULL,
-    expire_date date,
+    purchase_date date,
+    expire_date date NOT NULL,
     allergy_type int(5),
     supplier int(5) NOT NULL,
     PRIMARY KEY (ingredient_id)
@@ -85,7 +84,7 @@ ALTER TABLE meal_chef
 
 ALTER TABLE ingredient
     ADD INDEX FKingredient51913 (allergy_type),
-    ADD CONSTRAINT FKingredient51913 FOREIGN KEY (allergy_type) REFERENCES allergy (allergy_num);
+    ADD CONSTRAINT FKingredient51913 FOREIGN KEY (allergy_type) REFERENCES allergy (allergy_num) ON DELETE SET NULL ON UPDATE CASCADE;
 
 ALTER TABLE meal_ingredient
     ADD INDEX FKmeal_ingre337039 (ingredient_id),
@@ -97,6 +96,6 @@ ALTER TABLE meal_ingredient
 
 ALTER TABLE ingredient
     ADD INDEX FKingredient740659 (supplier),
-    ADD CONSTRAINT FKingredient740659 FOREIGN KEY (supplier) REFERENCES supplier (supp_num);
+    ADD CONSTRAINT FKingredient740659 FOREIGN KEY (supplier) REFERENCES supplier (supp_num) ON UPDATE CASCADE;
 
 COMMIT;

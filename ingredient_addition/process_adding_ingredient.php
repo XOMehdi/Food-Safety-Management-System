@@ -1,12 +1,14 @@
+
 <?php
+include('../secure.php');
+
 if (isset($_GET['ingredient_submitted'])) {
     include_once('../connection.php');
 
 
-    $ingredient_id = $_GET['ingredient_name'];
-    $ingredient_id = substr($ingredient_id, 0, 4) . substr(time(), -4);
-
     $ingredient_name = $_GET['ingredient_name'];
+    $ingredient_id = strtolower(substr(str_replace(" ", "", $ingredient_name), 0, 4)) . substr(time(), -4);
+
     $ingredient_cost = $_GET['ingredient_cost'];
     $purchase_date = $_GET['purchase_date'];
     $expire_date = $_GET['expire_date'];
@@ -16,7 +18,7 @@ if (isset($_GET['ingredient_submitted'])) {
     $supp_country = $_GET['supp_country'];
 
     $allergy_type = $_GET['allergy_type'];
-    $allergy_severity = $_GET['severty_level'];
+    $allergy_severity = $_GET['severity_level'];
 
     $query = $conn->prepare("INSERT INTO allergy (allergy_type, allergy_severity) VALUES (?, ?)");
     $query->execute([$allergy_type, $allergy_severity]);

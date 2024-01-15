@@ -1,5 +1,4 @@
 <?php
-include_once('../connection.php');
 include('../secure.php');
 ?>
 
@@ -31,7 +30,7 @@ include('../secure.php');
           <a href="../status_checking/status_checking.php" class="hover:text-blue-200 font-medium">Meal Status Checking</a>
         </li>
         <li class="mt-10">
-          <a class="block bg-white text-blue-500 py-2 px-2 rounded-full mr-6 text-center" href="../logout.php">Log Out</a>
+          <a class="block bg-white text-blue-500 py-2 px-2 rounded-full mr-6 text-center" href="../logout.php">Logout</a>
         </li>
       </ul>
     </div>
@@ -56,7 +55,7 @@ include('../secure.php');
 
       <main class="w-full">
         <div class="container mx-auto mt-4">
-          <form action="inventory.php" method="GET">
+          <form action="process_adding_ingredient.php" method="GET">
             <section id="section-ingredient">
               <div class="rounded-lg shadow-lg bg-white p-6">
                 <div class="flex justify-center">
@@ -140,7 +139,7 @@ include('../secure.php');
                       <label class="block text-gray-700 font-bold mb-2">
                         Severty Level
                       </label>
-                      <input type="text" class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" placeholder="Enter a number from 1-10" name="severty_level" />
+                      <input type="text" class="appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full" placeholder="Enter a number from 1-10" name="severity_level" />
                     </div>
                     <div class="mb-4 flex justify-end">
                       <input type="hidden" name="ingredient_submitted" value="1" />

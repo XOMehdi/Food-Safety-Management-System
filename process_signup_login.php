@@ -1,6 +1,6 @@
 <?php
 
-include_once('connection.php');
+include_once('./connection.php');
 session_start();
 
 if (isset($_POST['logged_in'])) {
@@ -13,8 +13,11 @@ if (isset($_POST['logged_in'])) {
     $row = $query->fetch(PDO::FETCH_OBJ);
 
     if ($chef_username == $row->chef_username && $chef_password == $row->chef_password) {
+        // if ($chef_username == $_SESSION['chef_username'] && password_verify($chef_password, $_SESSION['chef_password'])) {
         $_SESSION['chef_username'] = $chef_username;
-        $_SESSION['chef_password'] = $chef_password;
+
+        $hashed_chef_password = password_hash($chef_password, PASSWORD_DEFAULT);
+        $_SESSION['chef_password'] = $hashed_chef_password;
 
         header('Location: home.php');
         exit();
@@ -36,7 +39,9 @@ if (isset($_POST['signed_up'])) {
     $query->execute([$chef_username, $chef_fname, $chef_lname, $chef_age, $chef_gender, $chef_password]);
 
     $_SESSION['chef_username'] = $chef_username;
-    $_SESSION['chef_password'] = $chef_password;
+
+    $hashed_chef_password = password_hash($chef_password, PASSWORD_DEFAULT);
+    $_SESSION['chef_password'] = $hashed_chef_password;
 
     header('Location: login.html');
 }
